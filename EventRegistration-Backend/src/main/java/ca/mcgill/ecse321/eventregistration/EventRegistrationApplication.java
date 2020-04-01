@@ -19,3 +19,4 @@ public class EventRegistrationApplication {
 				+ "Use the API methods to interact with the backend!";
 	}
 }
+//test commit to github
