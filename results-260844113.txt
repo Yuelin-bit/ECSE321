@@ -1,5 +1,5 @@
 ***********************************************************
-Timestamp: 20 04 01 Wed 05:02:01 (UTC)
+Timestamp: 20 04 02 Thu 05:02:08 (UTC)
 
 Backend results:
 0 tests completed, 0 failed, 35 skipped (compile error)
@@ -15,8 +15,8 @@ Total score (percentage):
 Backend Gradle build log:
 
 Initialized native services in: /home/travis/.gradle/native
-The client will now receive all logging from the daemon (pid: 5376). The daemon log file: /home/travis/.gradle/daemon/5.1.1/daemon-5376.out.log
-Starting 2nd build in daemon [uptime: 5.613 secs, performance: 97%]
+The client will now receive all logging from the daemon (pid: 5399). The daemon log file: /home/travis/.gradle/daemon/5.1.1/daemon-5399.out.log
+Starting 2nd build in daemon [uptime: 32.062 secs, performance: 98%]
 Using 2 worker leases.
 Starting Build
 Settings evaluated using settings file '/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/settings.gradle'.
@@ -25,7 +25,6 @@ Included projects: [root project 'EventRegistration-Backend']
 
 > Configure project :
 Evaluating root project 'EventRegistration-Backend' using build file '/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/build.gradle'.
-Compiling build file '/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/build.gradle' using BuildScriptTransformer.
 Applying dependency management to configuration 'annotationProcessor' in project 'EventRegistration-Backend'
 Applying dependency management to configuration 'apiElements' in project 'EventRegistration-Backend'
 Applying dependency management to configuration 'archives' in project 'EventRegistration-Backend'
@@ -52,29 +51,22 @@ Selected primary task 'test' from project :
 Tasks to be executed: [task ':compileJava', task ':processResources', task ':classes', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test']
 :compileJava (Thread[Daemon worker,5,main]) started.
 
-> Task :compileJava
+> Task :compileJava UP-TO-DATE
 Resolving global dependency management for project 'EventRegistration-Backend'
 Excluding [org.apache.tomcat:tomcat-annotations-api]
 Excluding []
-Task ':compileJava' is not up-to-date because:
-  No history is available.
-Custom actions are attached to task ':compileJava'.
-All input files are considered out-of-date for incremental task ':compileJava'.
-Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
-Compiling with JDK Java compiler API.
-Created classpath snapshot for incremental compilation in 8.545 secs. 1 duplicate classes found in classpath (see all with --debug).
-:compileJava (Thread[Daemon worker,5,main]) completed. Took 21.053 secs.
-:processResources (Thread[Daemon worker,5,main]) started.
+Skipping task ':compileJava' as it is up-to-date.
+:compileJava (Thread[Daemon worker,5,main]) completed. Took 1.33 secs.
+:processResources (Thread[Execution worker for ':',5,main]) started.
 
-> Task :processResources
-Task ':processResources' is not up-to-date because:
-  No history is available.
-:processResources (Thread[Daemon worker,5,main]) completed. Took 0.022 secs.
+> Task :processResources UP-TO-DATE
+Skipping task ':processResources' as it is up-to-date.
+:processResources (Thread[Execution worker for ':',5,main]) completed. Took 0.003 secs.
 :classes (Thread[Execution worker for ':',5,main]) started.
 
-> Task :classes
+> Task :classes UP-TO-DATE
 Skipping task ':classes' as it has no actions.
-:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.001 secs.
+:classes (Thread[Execution worker for ':',5,main]) completed. Took 0.0 secs.
 :compileTestJava (Thread[Execution worker for ':',5,main]) started.
 
 > Task :compileTestJava
@@ -91,46 +83,11 @@ import ca.mcgill.ecse321.eventregistration.dao.BitcoinRepository;
                                               ^
   symbol:   class BitcoinRepository
   location: package ca.mcgill.ecse321.eventregistration.dao
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:21: error: cannot find symbol
-import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
-                                                ^
-  symbol:   class Bitcoin
-  location: package ca.mcgill.ecse321.eventregistration.model
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:40: error: cannot find symbol
 	private BitcoinRepository bitcoinRepository;
 	        ^
   symbol:   class BitcoinRepository
   location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:309: error: cannot find symbol
-	public void bitcoinAsserts(Bitcoin expected, Bitcoin actual) {
-	                           ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:309: error: cannot find symbol
-	public void bitcoinAsserts(Bitcoin expected, Bitcoin actual) {
-	                                             ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:315: error: cannot find symbol
-	public boolean bitcoinEquals(Bitcoin pay1, Bitcoin pay2) {
-	                             ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:315: error: cannot find symbol
-	public boolean bitcoinEquals(Bitcoin pay1, Bitcoin pay2) {
-	                                           ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:319: error: cannot find symbol
-	public boolean contains(List<Registration> rs, Bitcoin pay) {
-	                                               ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:32: error: cannot find symbol
-    private PromoterRepository promoterRepository;
-            ^
-  symbol:   class PromoterRepository
-  location: class TestPromoterRoleHidden
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/event/TestCircusHidden.java:31: error: cannot find symbol
     private CircusRepository circusRepository;
             ^
@@ -138,69 +95,49 @@ import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
   location: class TestCircusHidden
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:58: error: cannot find symbol
 			Bitcoin ap = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST01_VALID_ID,
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:58: error: cannot find symbol
-			Bitcoin ap = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST01_VALID_ID,
 			                    ^
   symbol:   method createBitcoinPay(String,int)
+  location: variable service of type EventRegistrationService
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:60: error: cannot find symbol
+			service.pay(r, ap);
+			       ^
+  symbol:   method pay(Registration,Bitcoin)
   location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:63: error: cannot find symbol
 			bitcoinAsserts(ap, allRs.get(0).getBitcoin());
 			                               ^
   symbol:   method getBitcoin()
   location: class Registration
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:77: error: cannot find symbol
-		Bitcoin[] pays = new Bitcoin[length];
-		^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:77: error: cannot find symbol
-		Bitcoin[] pays = new Bitcoin[length];
-		                     ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:84: error: cannot find symbol
 				pays[i] = service.createBitcoinPay(ids[i], amounts[i]);
 				                 ^
   symbol:   method createBitcoinPay(String,int)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:109: error: cannot find symbol
-		Bitcoin[] pays = new Bitcoin[length];
-		^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:109: error: cannot find symbol
-		Bitcoin[] pays = new Bitcoin[length];
-		                     ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:85: error: cannot find symbol
+				service.pay(r, pays[i]);
+				       ^
+  symbol:   method pay(Registration,Bitcoin)
+  location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:116: error: cannot find symbol
 				pays[i] = service.createBitcoinPay(ids[i], amounts[i]);
 				                 ^
   symbol:   method createBitcoinPay(String,int)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:141: error: cannot find symbol
-		Bitcoin[] pays = new Bitcoin[length];
-		^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:141: error: cannot find symbol
-		Bitcoin[] pays = new Bitcoin[length];
-		                     ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:117: error: cannot find symbol
+				service.pay(r, pays[i]);
+				       ^
+  symbol:   method pay(Registration,Bitcoin)
+  location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:148: error: cannot find symbol
 				pays[i] = service.createBitcoinPay(ids[i], amounts[i]);
 				                 ^
   symbol:   method createBitcoinPay(String,int)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:170: error: cannot find symbol
-			Bitcoin ap1 = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST05_INITIAL_ID,
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:149: error: cannot find symbol
+				service.pay(r, pays[i]);
+				       ^
+  symbol:   method pay(Registration,Bitcoin)
+  location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:170: error: cannot find symbol
 			Bitcoin ap1 = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST05_INITIAL_ID,
 			                     ^
@@ -208,19 +145,24 @@ import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
   location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:172: error: cannot find symbol
 			Bitcoin ap2 = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST05_AFTER_ID,
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:172: error: cannot find symbol
-			Bitcoin ap2 = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST05_AFTER_ID,
 			                     ^
   symbol:   method createBitcoinPay(String,int)
+  location: variable service of type EventRegistrationService
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:174: error: cannot find symbol
+			service.pay(r, ap1);
+			       ^
+  symbol:   method pay(Registration,Bitcoin)
   location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:177: error: cannot find symbol
 			bitcoinAsserts(ap1, allRs1.get(0).getBitcoin());
 			                                 ^
   symbol:   method getBitcoin()
   location: class Registration
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:178: error: cannot find symbol
+			service.pay(r, ap2);
+			       ^
+  symbol:   method pay(Registration,Bitcoin)
+  location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:181: error: cannot find symbol
 			bitcoinAsserts(ap2, allRs2.get(0).getBitcoin());
 			                                 ^
@@ -228,29 +170,19 @@ import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
   location: class Registration
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:190: error: cannot find symbol
 			Bitcoin ap = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST06_VALID_ID,
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:190: error: cannot find symbol
-			Bitcoin ap = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST06_VALID_ID,
 			                    ^
   symbol:   method createBitcoinPay(String,int)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:193: error: cannot find symbol
-			for (Bitcoin pay : bitcoinRepository.findAll()) {
-			     ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:207: error: cannot find symbol
-			Bitcoin ap = null;
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:222: error: cannot find symbol
-			Bitcoin ap = null;
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:208: error: cannot find symbol
+			service.pay(r, ap);
+			       ^
+  symbol:   method pay(Registration,Bitcoin)
+  location: variable service of type EventRegistrationService
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:223: error: cannot find symbol
+			service.pay(r, ap);
+			       ^
+  symbol:   method pay(Registration,Bitcoin)
+  location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:233: error: cannot find symbol
 			service.createBitcoinPay(TestPaymentWithBitcoinData.TEST09_WRONG_ID,
 			       ^
@@ -278,188 +210,88 @@ import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
   location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:285: error: cannot find symbol
 			Bitcoin ap = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST14_VALID_ID,
-			^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:285: error: cannot find symbol
-			Bitcoin ap = service.createBitcoinPay(TestPaymentWithBitcoinData.TEST14_VALID_ID,
 			                    ^
   symbol:   method createBitcoinPay(String,int)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:288: error: cannot find symbol
-			for (Bitcoin pay : bitcoinRepository.findAll()) {
-			     ^
-  symbol:   class Bitcoin
-  location: class TestPaymentWithBitcoinHidden
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:299: error: cannot find symbol
 			service.createBitcoinPay(TestPaymentWithBitcoinData.TEST15_VALID_ID,
 			       ^
   symbol:   method createBitcoinPay(String,int)
   location: variable service of type EventRegistrationService
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:311: error: cannot find symbol
+		assertEquals(expected.getAmount(), actual.getAmount());
+		                     ^
+  symbol:   method getAmount()
+  location: variable expected of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:311: error: cannot find symbol
+		assertEquals(expected.getAmount(), actual.getAmount());
+		                                         ^
+  symbol:   method getAmount()
+  location: variable actual of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:312: error: cannot find symbol
+		assertEquals(expected.getUserID(), actual.getUserID());
+		                     ^
+  symbol:   method getUserID()
+  location: variable expected of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:312: error: cannot find symbol
+		assertEquals(expected.getUserID(), actual.getUserID());
+		                                         ^
+  symbol:   method getUserID()
+  location: variable actual of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:316: error: cannot find symbol
+		return pay2 != null && pay2.getAmount() == pay1.getAmount() && pay2.getUserID().equals(pay1.getUserID());
+		                           ^
+  symbol:   method getAmount()
+  location: variable pay2 of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:316: error: cannot find symbol
+		return pay2 != null && pay2.getAmount() == pay1.getAmount() && pay2.getUserID().equals(pay1.getUserID());
+		                                               ^
+  symbol:   method getAmount()
+  location: variable pay1 of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:316: error: cannot find symbol
+		return pay2 != null && pay2.getAmount() == pay1.getAmount() && pay2.getUserID().equals(pay1.getUserID());
+		                                                                   ^
+  symbol:   method getUserID()
+  location: variable pay2 of type Bitcoin
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:316: error: cannot find symbol
+		return pay2 != null && pay2.getAmount() == pay1.getAmount() && pay2.getUserID().equals(pay1.getUserID());
+		                                                                                           ^
+  symbol:   method getUserID()
+  location: variable pay1 of type Bitcoin
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/payment/TestPaymentWithBitcoinHidden.java:321: error: cannot find symbol
 			if (bitcoinEquals(pay, r.getBitcoin())) {
 			                        ^
   symbol:   method getBitcoin()
   location: variable r of type Registration
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:48: error: cannot find symbol
-            service.createPromoter(name);
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:109: error: cannot find symbol
+            service.promotesEvent(promoter, event);
                    ^
-  symbol:   method createPromoter(String)
+  symbol:   method promotesEvent(Promoter,Event)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:49: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                 ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:49: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                                              ^
-  symbol:   method getAllPromoters()
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:60: error: cannot find symbol
-            service.createPromoter(name);
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:110: error: cannot find symbol
+            assertEquals(promoter.getPromotes().size(), 1);
+                                 ^
+  symbol:   method getPromotes()
+  location: variable promoter of type Promoter
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:121: error: cannot find symbol
+            service.promotesEvent(promoter, event);
                    ^
-  symbol:   method createPromoter(String)
+  symbol:   method promotesEvent(Promoter,Event)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:64: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                 ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:64: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                                              ^
-  symbol:   method getAllPromoters()
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:73: error: cannot find symbol
-            service.createPromoter(name);
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:134: error: cannot find symbol
+            service.promotesEvent(promoter, event);
                    ^
-  symbol:   method createPromoter(String)
+  symbol:   method promotesEvent(Promoter,Event)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:76: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                 ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:76: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                                              ^
-  symbol:   method getAllPromoters()
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:86: error: cannot find symbol
-            service.createPromoter(name);
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:146: error: cannot find symbol
+            service.promotesEvent(promoter, event);
                    ^
-  symbol:   method createPromoter(String)
+  symbol:   method promotesEvent(Promoter,Event)
   location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:87: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                 ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:87: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                                              ^
-  symbol:   method getAllPromoters()
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:95: error: cannot find symbol
-            service.createPromoter(name);
+/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:159: error: cannot find symbol
+            service.promotesEvent(promoter, event);
                    ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:99: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                 ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:99: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                                              ^
-  symbol:   method getAllPromoters()
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:107: error: cannot find symbol
-            Promoter promoter = service.createPromoter("validname");
-            ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:107: error: cannot find symbol
-            Promoter promoter = service.createPromoter("validname");
-                                       ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:119: error: cannot find symbol
-            Promoter promoter = null;
-            ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:131: error: cannot find symbol
-            Promoter promoter = new Promoter();
-            ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:131: error: cannot find symbol
-            Promoter promoter = new Promoter();
-                                    ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:144: error: cannot find symbol
-            Promoter promoter = service.createPromoter("validname");
-            ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:144: error: cannot find symbol
-            Promoter promoter = service.createPromoter("validname");
-                                       ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:156: error: cannot find symbol
-            Promoter promoter = service.createPromoter("validname");
-            ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:156: error: cannot find symbol
-            Promoter promoter = service.createPromoter("validname");
-                                       ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:169: error: cannot find symbol
-            service.createPromoter("validname1");
-                   ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:170: error: cannot find symbol
-            service.createPromoter("validname2");
-                   ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:171: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                 ^
-  symbol:   class Promoter
-  location: class TestPromoterRoleHidden
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:171: error: cannot find symbol
-            List<Promoter> promoters = service.getAllPromoters();
-                                              ^
-  symbol:   method getAllPromoters()
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:181: error: cannot find symbol
-            service.createPromoter("promoter");
-                   ^
-  symbol:   method createPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:182: error: cannot find symbol
-            service.getPromoter("promoter");
-                   ^
-  symbol:   method getPromoter(String)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:191: error: cannot find symbol
-            service.getPromoter(null);
-                   ^
-  symbol:   method getPromoter(<null>)
-  location: variable service of type EventRegistrationService
-/home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/role/TestPromoterRoleHidden.java:201: error: cannot find symbol
-            service.getPromoter(" ");
-                   ^
-  symbol:   method getPromoter(String)
+  symbol:   method promotesEvent(Promoter,Event)
   location: variable service of type EventRegistrationService
 /home/travis/build/McGill-ECSE321-Winter2020/assignment-grader/EventRegistration-Backend/src/test/java/ca/mcgill/ecse321/eventregistration/service/event/TestCircusHidden.java:40: error: cannot find symbol
         assertEquals(0, service.getAllCircuses().size());
@@ -586,10 +418,10 @@ import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
                                ^
   symbol:   method getAllCircuses()
   location: variable service of type EventRegistrationService
-100 errors
+68 errors
 
 > Task :compileTestJava FAILED
-:compileTestJava (Thread[Execution worker for ':',5,main]) completed. Took 3.837 secs.
+:compileTestJava (Thread[Execution worker for ':',5,main]) completed. Took 2.854 secs.
 
 FAILURE: Build failed with an exception.
 
@@ -602,5 +434,5 @@ Run with --stacktrace option to get the stack trace. Run with --debug option to 
 
 * Get more help at https://help.gradle.org
 
-BUILD FAILED in 29s
-3 actionable tasks: 3 executed
+BUILD FAILED in 5s
+3 actionable tasks: 1 executed, 2 up-to-date
