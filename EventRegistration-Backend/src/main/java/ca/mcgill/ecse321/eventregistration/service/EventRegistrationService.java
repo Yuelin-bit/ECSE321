@@ -204,6 +204,17 @@ public class EventRegistrationService {
 	public List<Promoter> getAllPromoters() {
 		return toList(promoterRepository.findAll());
 	}
+	
+	@Transactional
+	public void promotesEvent(Promoter promoter, Event event) {
+		// TODO Auto-generated method stub
+		event.setPromoter(promoter);
+		Set<Event> temp = promoter.getPromotes();
+		temp.add(event);
+		promoter.setPromotes(temp);	
+		promoterRepository.save(promoter);
+		eventRepository.save(event);
+	}
 
 	private <T> List<T> toList(Iterable<T> iterable) {
 		List<T> resultList = new ArrayList<T>();
@@ -212,4 +223,6 @@ public class EventRegistrationService {
 		}
 		return resultList;
 	}
+
+
 }

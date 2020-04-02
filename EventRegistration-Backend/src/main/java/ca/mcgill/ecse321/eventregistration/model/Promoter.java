@@ -8,14 +8,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Promoter extends Person {
-	private Set<Event> events;
+	private Set<Event> promotes;
 	
 	@OneToMany(mappedBy="promoter" )
-	public Set<Event> getEvents(){
-	     return this.events;
+	public Set<Event> getPromotes(){
+	     return this.promotes;
 	}
 	
-	public void setEvents(Set<Event> events) {
-		  this.events = events;
+	public void setPromotes(Set<Event> promotes) {
+		  this.promotes = promotes;
 	}
 }
