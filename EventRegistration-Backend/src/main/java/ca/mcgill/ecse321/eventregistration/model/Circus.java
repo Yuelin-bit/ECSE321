@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Circus extends Event {
-	String company;
+	private String company;
 
 	public String getCompany() {
 		return company;
