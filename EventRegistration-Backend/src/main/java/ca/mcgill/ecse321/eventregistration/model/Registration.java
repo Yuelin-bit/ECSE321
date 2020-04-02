@@ -3,6 +3,7 @@ package ca.mcgill.ecse321.eventregistration.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Registration {
@@ -40,6 +41,17 @@ public class Registration {
 		this.event = event;
 	}
 	
+	private Bitcoin bitcoin;
+	
+	@OneToOne
+	public Bitcoin getBitcoin() {
+		return this.bitcoin;
+	}
+	
+	public void setBitcoin(Bitcoin bitcoin) {
+		this.bitcoin = bitcoin;
+	}
+
 
 
 }
