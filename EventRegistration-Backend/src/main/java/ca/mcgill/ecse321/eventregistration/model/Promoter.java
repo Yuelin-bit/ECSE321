@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 public class Promoter extends Person {
 	private Set<Event> events;
 	
-	@OneToMany(mappedBy="managingEvents" )
+	@OneToMany(mappedBy="promoter" )
 	public Set<Event> getEvents(){
 	     return this.events;
 	}

@@ -23,6 +23,9 @@ public class EventRegistrationService {
 	private PersonRepository personRepository;
 	@Autowired
 	private RegistrationRepository registrationRepository;
+	@Autowired
+	private PromoterRepository promoterRepository;
+	
 
 	@Transactional
 	public Person createPerson(String name) {
@@ -176,6 +179,30 @@ public class EventRegistrationService {
 			eventsAttendedByPerson.add(r.getEvent());
 		}
 		return eventsAttendedByPerson;
+	}
+	
+	@Transactional
+	public Promoter createPromoter(String name) {
+		if (name == null || name.trim().length() == 0) {
+			throw new IllegalArgumentException("User name cannot be empty!");
+		}
+		Promoter promoter = new Promoter();
+		promoterRepository.save(promoter);
+		return promoter;
+	}
+	
+	@Transactional
+	public Promoter getPromoter(String name) {
+		if (name == null || name.trim().length() == 0) {
+			throw new IllegalArgumentException("User id cannot be empty!");
+		}
+		Promoter promoter = promoterRepository.findPromoterByName(name);
+		return promoter;
+	}
+	
+	@Transactional
+	public List<Promoter> getAllPromoters() {
+		return toList(promoterRepository.findAll());
 	}
 
 	private <T> List<T> toList(Iterable<T> iterable) {

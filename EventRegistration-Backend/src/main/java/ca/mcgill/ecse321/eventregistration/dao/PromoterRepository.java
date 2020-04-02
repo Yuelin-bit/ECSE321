@@ -6,5 +6,5 @@ import ca.mcgill.ecse321.eventregistration.model.Promoter;
 
 
 public interface PromoterRepository extends CrudRepository<Promoter, String> {
-	Promoter findByName(String name);
+	Promoter findPromoterByName(String name);
 }

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.sql.Date;
@@ -20,6 +21,17 @@ public class Event {
 
     public void setName(String value) {
         this.name = value;
+    }
+    
+    private Promoter promoter;
+    
+    @ManyToOne(optional=false)
+    public Promoter getPromoter() {
+       return this.promoter;
+    }
+    
+    public void setPromoter(Promoter promoter) {
+       this.promoter = promoter;
     }
     @Id
     public String getName() {
