@@ -220,6 +220,40 @@ public class EventRegistrationService {
 		promoterRepository.save(promoter);
 		eventRepository.save(event);
 	}
+	
+	@Transactional
+	public Circus createCircus(String name, Date circusDate, Time valueOf, Time valueOf2, String company) {
+		if (name == null || name.trim().length() == 0) {
+			throw new IllegalArgumentException("Circus name cannot be empty!");
+		}
+		if (company == null || company.trim().length() == 0) {
+			throw new IllegalArgumentException("Company name cannot be empty!");
+		}
+		Circus circus = new Circus();
+		circus.setName(name);
+		circus.setDate(circusDate);
+		circus.setStartTime(valueOf);
+		circus.setEndTime(valueOf2);
+		circus.setCompany(company);
+		circusRepository.save(circus);
+		return circus;
+	}
+	
+	@Transactional
+	public Circus getCircus(String name) {
+		if (name == null || name.trim().length() == 0) {
+			throw new IllegalArgumentException("Circus name cannot be empty!");
+		}
+		Circus circus = circusRepository.findCircusByName(name);
+		return circus;
+	}
+	
+	@Transactional
+	public List<Circus> getAllCircuses() {
+		return toList(circusRepository.findAll());
+	}
+	
+	
 
 	private <T> List<T> toList(Iterable<T> iterable) {
 		List<T> resultList = new ArrayList<T>();
@@ -228,6 +262,19 @@ public class EventRegistrationService {
 		}
 		return resultList;
 	}
+
+
+	public Bitcoin createBitcoinPay(String string, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void pay(Registration r, Bitcoin ap) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 
 }

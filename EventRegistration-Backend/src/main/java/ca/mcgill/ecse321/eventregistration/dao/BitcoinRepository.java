@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import ca.mcgill.ecse321.eventregistration.model.Bitcoin;
 
 public interface BitcoinRepository extends CrudRepository<Bitcoin, String> {
-	Bitcoin findBitcoinByBitCoinUserId(String bitCoinUserId);
+	Bitcoin findBitcoinByUserID(String userID);
 }

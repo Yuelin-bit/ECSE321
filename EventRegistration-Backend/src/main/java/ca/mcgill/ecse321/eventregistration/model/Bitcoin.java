@@ -6,14 +6,14 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Bitcoin {
-	private String bitCoinUserId;
+	private String userID;
 	@Id
-	public String getBitCoinUserId() {
-		return bitCoinUserId;
+	public String getUserID() {
+		return userID;
 	}
 
-	public void setBitCoinUserId(String bitCoinUserId) {
-		this.bitCoinUserId = bitCoinUserId;
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 	
 	private int amount;
