@@ -25,6 +25,11 @@ public class EventRegistrationService {
 	private RegistrationRepository registrationRepository;
 	@Autowired
 	private PromoterRepository promoterRepository;
+	@Autowired
+	private CircusRepository circusRepository;
+	@Autowired
+	private BitcoinRepository bitcoinRepository;
+	
 	
 
 	@Transactional
