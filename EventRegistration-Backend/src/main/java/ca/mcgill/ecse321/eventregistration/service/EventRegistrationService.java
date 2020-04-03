@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -285,20 +286,23 @@ public class EventRegistrationService {
 		return toList(circusRepository.findAll());
 	}
 	
-	
 
-	private <T> List<T> toList(Iterable<T> iterable) {
-		List<T> resultList = new ArrayList<T>();
-		for (T t : iterable) {
-			resultList.add(t);
-		}
-		return resultList;
-	}
 
 
 	public Bitcoin createBitcoinPay(String id, int amount) {
 		String error = "";
-		if(id == null || id.trim().length()==0) {
+		boolean format = true;
+		if(id == null || id.trim().length()!=9 ||  id.length()!=9) {
+			format = false;
+		}else {
+			if(id.charAt(4)!='-') format = false;
+			String prev = id.substring(0, 4);
+			String after = id.substring(5);
+			if(this.is_alpha(prev) == false) format = false;
+			if(this.isInteger(after) == false) format = false;
+
+		}
+		if(id == null || format == false) {
 			error = error + "User id is null or has wrong format!";
 		}
 		if(amount < 0) {
@@ -310,7 +314,7 @@ public class EventRegistrationService {
 		Bitcoin bitcoin = new Bitcoin();	
 		bitcoin.setUserID(id);
 		bitcoin.setAmount(amount);
-		
+		bitcoinRepository.save(bitcoin);
 		return bitcoin;
 	}
 
@@ -326,7 +330,43 @@ public class EventRegistrationService {
 		registrationRepository.save(r);
 	}
 
-
+	private <T> List<T> toList(Iterable<T> iterable) {
+		List<T> resultList = new ArrayList<T>();
+		for (T t : iterable) {
+			resultList.add(t);
+		}
+		return resultList;
+	}
+		
+	/**
+	 * tell whether string is integer
+	 * @param str is string
+	 * @return true if string are integer, otherwise false
+	 */
+	 private boolean isInteger(String str){
+         Pattern pattern=Pattern.compile("^[-\\+]?[\\d]*$");
+         return pattern.matcher(str).matches();
+     }
+	/**
+	 * tell whether string is alpha
+	 * ignore lowerCase or upperCase
+	 * @param str is string
+	 * @return true if string are alpha, otherwise false
+	 */
+    private boolean is_alpha(String str) {
+        if(str==null) return false;
+        return str.matches("[a-zA-Z]+");
+    }
+	/**
+	 * tell whether string is alpha or integer
+	 * ignore lowerCase or upperCase
+	 * @param str is string
+	 * @return true if string are alpha or integer, otherwise false
+	 */
+    private boolean isLetterDigit(String str) {
+        String regex = "^[a-z0-9A-Z]+$";
+        return str.matches(regex);
+    }
 
 
 }
