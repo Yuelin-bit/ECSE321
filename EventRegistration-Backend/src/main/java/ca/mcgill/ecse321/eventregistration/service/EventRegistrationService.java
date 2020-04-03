@@ -296,14 +296,34 @@ public class EventRegistrationService {
 	}
 
 
-	public Bitcoin createBitcoinPay(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+	public Bitcoin createBitcoinPay(String id, int amount) {
+		String error = "";
+		if(id == null || id.trim().length()==0) {
+			error = error + "User id is null or has wrong format!";
+		}
+		if(amount < 0) {
+			error = error + "Payment amount cannot be negative!";
+		}
+		if (error.length() > 0) {
+			throw new IllegalArgumentException(error);
+		}
+		Bitcoin bitcoin = new Bitcoin();	
+		bitcoin.setUserID(id);
+		bitcoin.setAmount(amount);
+		
+		return bitcoin;
 	}
 
 	public void pay(Registration r, Bitcoin ap) {
-		// TODO Auto-generated method stub
-		
+		String error = "";
+		if(r == null || ap == null) {
+			error = error + "Registration and payment cannot be null!";
+		}
+		if (error.length() > 0) {
+			throw new IllegalArgumentException(error);
+		}
+		r.setBitcoin(ap);
+		registrationRepository.save(r);
 	}
 
 
