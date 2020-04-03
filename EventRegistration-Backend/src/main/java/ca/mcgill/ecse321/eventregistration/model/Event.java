@@ -25,7 +25,7 @@ public class Event {
     
     private Promoter promoter;
     
-    @ManyToOne(optional=false)
+    @ManyToOne
     public Promoter getPromoter() {
        return this.promoter;
     }

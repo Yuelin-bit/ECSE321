@@ -2,6 +2,7 @@ package ca.mcgill.ecse321.eventregistration.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -10,7 +11,7 @@ import javax.persistence.OneToMany;
 public class Promoter extends Person {
 	private Set<Event> promotes;
 	
-	@OneToMany(mappedBy="promoter" )
+	@OneToMany(mappedBy="promoter", cascade = { CascadeType.ALL })
 	public Set<Event> getPromotes(){
 	     return this.promotes;
 	}

@@ -3,6 +3,7 @@ package ca.mcgill.ecse321.eventregistration.service;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -202,7 +203,7 @@ public class EventRegistrationService {
 	@Transactional
 	public Promoter getPromoter(String name) {
 		if (name == null || name.trim().length() == 0) {
-			throw new IllegalArgumentException("User id cannot be empty!");
+			throw new IllegalArgumentException("Person name cannot be empty!");
 		}
 		Promoter promoter = promoterRepository.findPromoterByName(name);
 		return promoter;
@@ -216,9 +217,18 @@ public class EventRegistrationService {
 	@Transactional
 	public void promotesEvent(Promoter promoter, Event event) {
 		// TODO Auto-generated method stub
+		if(promoter == null) {
+			throw new IllegalArgumentException("Promoter needs to be selected for promotes!");
+		}
+		if(! eventRepository.existsById(event.getName())){
+			throw new IllegalArgumentException("Event does not exist!");
+		}
 		event.setPromoter(promoter);
 		Set<Event> temp = promoter.getPromotes();
-		temp.add(event);
+		if(temp == null) {
+			temp = new HashSet<Event>();
+		}
+		temp.add(event);	
 		promoter.setPromotes(temp);	
 		promoterRepository.save(promoter);
 		eventRepository.save(event);
