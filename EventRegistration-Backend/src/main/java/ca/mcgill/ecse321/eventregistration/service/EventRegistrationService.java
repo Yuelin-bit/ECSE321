@@ -189,9 +189,12 @@ public class EventRegistrationService {
 	@Transactional
 	public Promoter createPromoter(String name) {
 		if (name == null || name.trim().length() == 0) {
-			throw new IllegalArgumentException("User name cannot be empty!");
+			throw new IllegalArgumentException("Promoter name cannot be empty!");
+		}else if (promoterRepository.existsById(name)) {
+			throw new IllegalArgumentException("Promoter has already been created!");
 		}
 		Promoter promoter = new Promoter();
+		promoter.setName(name);
 		promoterRepository.save(promoter);
 		return promoter;
 	}
