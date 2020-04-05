@@ -1,3 +1,8 @@
+/* eslint-disable space-before-function-paren */
+/* eslint-disable padded-blocks */
+/* eslint-disable block-spacing */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-unused-vars */
 import _ from 'lodash';
 import axios from 'axios';
 let config = require('../../config');
@@ -21,6 +26,7 @@ let AXIOS = axios.create({
 
 export default {
   name: 'eventregistration',
+
   data() {
     return {
       persons: [],
@@ -63,11 +69,12 @@ export default {
         this.errorPerson = '';
         this.newPerson = '';
       })
-      .catch(e => {
-        e = e.response.data.message ? e.response.data.message : e;
-        this.errorPerson = e;
-        console.log(e);
-      });
+      .catch(//e => {
+        //e = e.response.data.message ? e.response.data.message : e;
+        //this.errorPerson = e;
+        //console.log(e);
+     // }
+      );
     },
 
     createEvent: function (newEvent) {
