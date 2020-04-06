@@ -1,3 +1,5 @@
+/* eslint-disable brace-style */
+/* eslint-disable keyword-spacing */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-undef */
@@ -63,8 +65,9 @@ export default {
   methods: {
 
     createPerson: function (personType, personName) {
-      AXIOS.post('/persons/'.concat(personName), {}, {})
-      .then(response => {
+      if(personType == 'promoter') {
+        AXIOS.post('/promoters/'.concat(personName), {}, {})
+        .then(response => {
         this.persons.push(response.data);
         this.errorPerson = '';
         this.newPerson = '';
@@ -74,6 +77,20 @@ export default {
         this.errorPerson = e;
         console.log(e);
       });
+      }
+      else{
+        AXIOS.post('/persons/'.concat(personName), {}, {})
+        .then(response => {
+          this.persons.push(response.data);
+          this.errorPerson = '';
+          this.newPerson = '';
+        })
+        .catch(e => {
+          e = e.response.data.message ? e.response.data.message : e;
+          this.errorPerson = e;
+          console.log(e);
+        });
+      }
     },
 
     createCircus: function (newEvent) {

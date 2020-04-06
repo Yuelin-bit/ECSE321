@@ -5,6 +5,7 @@ import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -38,6 +39,18 @@ public class EventRegistrationRestController {
 		Person person = service.createPerson(name);
 		return convertToDto(person);
 	}
+	
+	// @formatter:off
+	// Turning off formatter here to ease comprehension of the sample code by
+	// keeping the linebreaks
+	// Example REST call:
+	// http://localhost:8088/persons/John
+	@PostMapping(value = { "/promoters/{name}", "/promoters/{name}/" })
+	public PromoterDto createPromoter(@PathVariable("name") String name) throws IllegalArgumentException {
+		// @formatter:on
+		Promoter promoter = service.createPromoter(name);
+		return convertToDto(promoter);
+	}
 
 	// @formatter:off
 	// Example REST call:
@@ -50,6 +63,20 @@ public class EventRegistrationRestController {
 		// @formatter:on
 		Event event = service.createEvent(name, date, Time.valueOf(startTime), Time.valueOf(endTime));
 		return convertToDto(event);
+	}
+	
+	// @formatter:off
+	// Example REST call:
+	// http://localhost:8080/events/testevent?date=2013-10-23&startTime=00:00&endTime=23:59
+	@PostMapping(value = { "/circus/{name}", "/circus/{name}/" })
+	public CircusDto createCircus(@PathVariable("name") String name, @RequestParam Date date,
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "HH:mm") LocalTime startTime,
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "HH:mm") LocalTime endTime,
+			@RequestParam String company)
+			throws IllegalArgumentException {
+		// @formatter:on
+		Circus circus = service.createCircus(name, date, Time.valueOf(startTime), Time.valueOf(endTime), company);
+		return convertToDto(circus);
 	}
 
 	// @formatter:off
@@ -133,6 +160,14 @@ public class EventRegistrationRestController {
 		EventDto eventDto = new EventDto(e.getName(), e.getDate(), e.getStartTime(), e.getEndTime());
 		return eventDto;
 	}
+	
+	private CircusDto convertToDto(Circus e) {
+		if (e == null) {
+			throw new IllegalArgumentException("There is no such Circus!");
+		}
+		CircusDto circusDto = new CircusDto(e.getName(), e.getDate(), e.getStartTime(), e.getEndTime(),e.getCompany());
+		return circusDto;
+	}
 
 	private PersonDto convertToDto(Person p) {
 		if (p == null) {
@@ -141,6 +176,16 @@ public class EventRegistrationRestController {
 		PersonDto personDto = new PersonDto(p.getName());
 		personDto.setEventsAttended(createAttendedEventDtosForPerson(p));
 		return personDto;
+	}
+	
+	private PromoterDto convertToDto(Promoter p) {
+		if (p == null) {
+			throw new IllegalArgumentException("There is no such Promoter!");
+		}
+		PromoterDto promoterDto = new PromoterDto(p.getName());
+		promoterDto.setEventsAttended(createAttendedEventDtosForPerson(p));
+		promoterDto.setPromotes(createPromoteDtosForPromoter(p));
+		return promoterDto;
 	}
 
 	// DTOs for registrations
@@ -185,6 +230,24 @@ public class EventRegistrationRestController {
 		}
 		return events;
 	}
+	
+	private List<EventDto> createPromoteDtosForPromoter(Promoter p) {
+		Set<Event> es = p.getPromotes();
+		List<EventDto> events = new ArrayList<>();
+		for (Event e : es) {
+			events.add(convertToDto(e));
+		}
+		return events;
+	}
+	
+//	private List<EventDto> createPromotesDtosForPromoter(Promoter p) {
+//		List<Event> eventsForPromoter = service.get.getEventsAttendedByPerson(p);
+//		List<EventDto> events = new ArrayList<>();
+//		for (Event event : eventsForPerson) {
+//			events.add(convertToDto(event));
+//		}
+//		return events;
+//	}
 
 	private List<RegistrationDto> createRegistrationDtosForPerson(Person p) {
 		List<Registration> registrationsForPerson = service.getRegistrationsForPerson(p);

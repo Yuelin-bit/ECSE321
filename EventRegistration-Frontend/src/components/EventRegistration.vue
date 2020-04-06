@@ -23,12 +23,11 @@
           <input id="create_person_person_name" type="text" v-model="newPerson" placeholder="Person Name">
         </td>
         <td>
-          <select v-model="personType" placeholder="Person">
+          <select id='create-person-person-type' v-model="personType" placeholder="Person">
             <!--<option disabled value="">Person</option>-->
-            <option>Person</option>
-            <option>Promoter</option>
+            <option value='person'>Person</option>
+            <option value='promoter'>Promoter</option>
           </select>
-          <span>{{ selected }}</span>
         </td>
         <td>
           <button id="create_person_button" v-bind:disabled="!newPerson" @click="createPerson(personType, newPerson)">Create Person</button>
