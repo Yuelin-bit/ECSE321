@@ -1,8 +1,8 @@
-/* eslint-disable space-before-function-paren */
-/* eslint-disable padded-blocks */
-/* eslint-disable block-spacing */
-/* eslint-disable comma-dangle */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+  // eslint-disable-next-line space-before-function-paren
 import _ from 'lodash';
 import axios from 'axios';
 let config = require('../../config');
@@ -27,7 +27,7 @@ let AXIOS = axios.create({
 export default {
   name: 'eventregistration',
 
-  data() {
+  data () {
     return {
       persons: [],
       events: [],
@@ -37,14 +37,15 @@ export default {
         name: '',
         date: '2017-12-08',
         startTime: '09:00',
-        endTime: '11:00'
+        endTime: '11:00',
+        company: ''
       },
       selectedPerson: '',
       selectedEvent: '',
       errorPerson: '',
       errorEvent: '',
       errorRegistration: '',
-      response: [],
+      response: []
     }
   },
   created: function () {
@@ -54,10 +55,9 @@ export default {
       this.persons = response.data;
       this.persons.forEach(person => this.getRegistrations(person.name))
     })
-    .catch(e => {this.errorPerson = e});
+    .catch(e => { this.errorPerson = e });
 
-    AXIOS.get('/events').then(response => {this.events = response.data}).catch(e => {this.errorEvent = e});
-
+    AXIOS.get('/events').then(response => { this.events = response.data }).catch(e => { this.errorEvent = e });
   },
 
   methods: {
@@ -76,9 +76,9 @@ export default {
       });
     },
 
-    createEvent: function (newEvent) {
+    createCircus: function (newEvent) {
       let url = '';
-
+      
       AXIOS.post('/events/'.concat(newEvent.name), {}, {params: newEvent})
       .then(response => {
         this.events.push(response.data);
@@ -90,6 +90,26 @@ export default {
         this.errorEvent = e;
         console.log(e);
       });
+    },
+
+    createEvent: function (newEvent) {
+      let url = '';
+
+      if (newEvent.company != '' && newEvent.company != null) {
+        this.createCircus(newEvent);
+      } else {
+        AXIOS.post('/events/'.concat(newEvent.name), {}, {params: newEvent})
+      .then(response => {
+        this.events.push(response.data);
+        this.errorEvent = '';
+        this.newEvent.name = this.newEvent.make = this.newEvent.movie = this.newEvent.company = this.newEvent.artist = this.newEvent.title = '';
+      })
+      .catch(e => {
+        e = e.response.data.message ? e.response.data.message : e;
+        this.errorEvent = e;
+        console.log(e);
+      });
+      }
     },
 
     registerEvent: function (personName, eventName) {
@@ -129,6 +149,6 @@ export default {
         e = e.response.data.message ? e.response.data.message : e;
         console.log(e);
       });
-    },
+    }
   }
 }
