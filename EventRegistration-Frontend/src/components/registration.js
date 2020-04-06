@@ -117,7 +117,9 @@ export default {
       } else {
         AXIOS.post('/events/'.concat(newEvent.name), {}, {params: newEvent})
       .then(response => {
-        this.events.push(response.data);
+        var event  = response.data;
+        event.company = '--'
+        this.events.push(event);
         this.errorEvent = '';
         this.newEvent.name = this.newEvent.make = this.newEvent.movie = this.newEvent.company = this.newEvent.artist = this.newEvent.title = '';
       })
