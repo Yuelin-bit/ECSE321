@@ -35,7 +35,7 @@ export default {
       personType: 'Person',
       newEvent: {
         name: '',
-        date: '2017-12-08',
+        date: '',
         startTime: '09:00',
         endTime: '11:00',
         company: ''
