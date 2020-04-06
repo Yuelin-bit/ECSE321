@@ -21,6 +21,14 @@
           <input id="create_person_person_name" type="text" v-model="newPerson" placeholder="Person Name">
         </td>
         <td>
+          <select v-model="personType" placeholder="Person">
+            <!--<option disabled value="">Person</option>-->
+            <option>Person</option>
+            <option>Promoter</option>
+          </select>
+          <span>{{ selected }}</span>
+        </td>
+        <td>
           <button id="create_person_button" v-bind:disabled="!newPerson" @click="createPerson(personType, newPerson)">Create Person</button>
         </td>
         <td></td>
@@ -37,12 +45,14 @@
         <th>Date</th>
         <th>Start</th>
         <th>End</th>
+        <th>Company</th>
       </tr>
       <tr v-for="(event, i) in events" v-bind:id="event.name" v-bind:key="`event-${i}`">
         <td v-bind:id="`${event.name.replace(/\s/g, '_')}-name`">{{event.name}}</td>
         <td v-bind:id="`${event.name.replace(/\s/g, '_')}-date`">{{event.date}}</td>
         <td v-bind:id="`${event.name.replace(/\s/g, '_')}-starttime`">{{event.startTime}}</td>
         <td v-bind:id="`${event.name.replace(/\s/g, '_')}-endtime`">{{event.endTime}}</td>
+        <td v-bind:id="`${event.name.replace(/\s/g, '_')}-company`">{{event.company}}</td>
       </tr>
       <tr>
         <td>
@@ -56,6 +66,9 @@
         </td>
         <td>
           <input id="event-endtime-input" type="time" v-model="newEvent.endTime" placeholder="HH:mm">
+        </td>
+        <td>
+          <input id="event-company-input" type="text" v-model="newEvent.company" placeholder="Company">
         </td>
         <td>
           <button id="event-create-button" v-bind:disabled="!newEvent.name" v-on:click="createEvent(newEvent)">Create</button>

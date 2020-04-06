@@ -69,12 +69,11 @@ export default {
         this.errorPerson = '';
         this.newPerson = '';
       })
-      .catch(//e => {
-        //e = e.response.data.message ? e.response.data.message : e;
-        //this.errorPerson = e;
-        //console.log(e);
-     // }
-      );
+      .catch(e => {
+        e = e.response.data.message ? e.response.data.message : e;
+        this.errorPerson = e;
+        console.log(e);
+      });
     },
 
     createEvent: function (newEvent) {
