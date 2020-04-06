@@ -79,7 +79,7 @@ export default {
     createCircus: function (newEvent) {
       let url = '';
       
-      AXIOS.post('/events/'.concat(newEvent.name), {}, {params: newEvent})
+      AXIOS.post('/circus/'.concat(newEvent.name), {}, {params: newEvent})
       .then(response => {
         this.events.push(response.data);
         this.errorEvent = '';
