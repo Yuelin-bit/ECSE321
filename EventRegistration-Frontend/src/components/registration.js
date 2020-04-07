@@ -48,6 +48,7 @@ export default {
       selectedEvent: '',
       selectedEventP: '',
       errorPerson: '',
+      errorPromoter: '',
       errorEvent: '',
       errorRegistration: '',
       errorAssign: '',
@@ -64,6 +65,8 @@ export default {
     .catch(e => { this.errorPerson = e });
 
     AXIOS.get('/events').then(response => { this.events = response.data }).catch(e => { this.errorEvent = e });
+    AXIOS.get('/promoters').then(response => { this.promoters = response.data }).catch(e => { this.errorPromoter = e });
+
   },
 
   methods: {

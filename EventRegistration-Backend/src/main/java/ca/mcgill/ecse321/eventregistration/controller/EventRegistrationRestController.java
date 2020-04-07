@@ -129,7 +129,7 @@ public class EventRegistrationRestController {
 	}
 	
 	@GetMapping(value = { "/promoters/{name}", "/promoters/{name}/" })
-	public PersonDto getPromotersByName(@PathVariable("name") String name) throws IllegalArgumentException {
+	public PromoterDto getPromotersByName(@PathVariable("name") String name) throws IllegalArgumentException {
 		return convertToDto(service.getPromoter(name));
 	}
 
@@ -160,6 +160,15 @@ public class EventRegistrationRestController {
 			persons.add(convertToDto(person));
 		}
 		return persons;
+	}
+	
+	@GetMapping(value = { "/promoters", "/promoters/" })
+	public List<PromoterDto> getAllPromoters() {
+		List<PromoterDto> promoters = new ArrayList<>();
+		for (Promoter promoter : service.getAllPromoters()) {
+			promoters.add(convertToDto(promoter));
+		}
+		return promoters;
 	}
 
 	@GetMapping(value = { "/events/{name}", "/events/{name}/" })
