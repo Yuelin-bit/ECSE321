@@ -32,6 +32,7 @@ export default {
   data () {
     return {
       persons: [],
+      promoters: [],
       events: [],
       newPerson: '',
       personType: 'Person',
@@ -43,10 +44,13 @@ export default {
         company: ''
       },
       selectedPerson: '',
+      selectedPromoter: '',
       selectedEvent: '',
+      selectedEventP: '',
       errorPerson: '',
       errorEvent: '',
       errorRegistration: '',
+      errorAssign: '',
       response: []
     }
   },
@@ -69,6 +73,7 @@ export default {
         AXIOS.post('/promoters/'.concat(personName), {}, {})
         .then(response => {
           this.persons.push(response.data);
+          this.promoters.push(response.data);
           this.errorPerson = '';
           this.newPerson = '';
         })
@@ -175,6 +180,28 @@ export default {
       })
       .catch(e => {
         e = e.response.data.message ? e.response.data.message : e;
+        console.log(e);
+      });
+    },
+
+    assignEvent: function (personName, eventName) {
+      let promoter = this.promoters.find(x => x.name === personName);
+      let event = this.events.find(x => x.name === eventName);
+      let params = {
+        promoter: promoter.name,
+        event: event.name
+      };
+
+      AXIOS.post('/assign', {}, {params: params})
+      .then(response => {
+        this.selectedPerson = '';
+        this.selectedEventP = '';
+        this.errorAssign = '';
+        console.log('assigned')
+      })
+      .catch(e => {
+        e = e.response.data.message ? e.response.data.message : e;
+        this.errorAssign = e;
         console.log(e);
       });
     }

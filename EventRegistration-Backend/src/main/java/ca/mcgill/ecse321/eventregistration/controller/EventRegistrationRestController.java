@@ -92,6 +92,14 @@ public class EventRegistrationRestController {
 		Registration r = service.register(p, e);
 		return convertToDto(r, p, e);
 	}
+	
+	@PostMapping(value = { "/assign", "/assign/" })
+	public void assign(@RequestParam(name = "promoter") PromoterDto pDto,
+			@RequestParam(name = "event") EventDto eDto) throws IllegalArgumentException {
+		Promoter p = service.getPromoter(pDto.getName());
+		Event e = service.getEvent(eDto.getName());
+		service.promotesEvent(p, e);
+	}
 
 	// GET Mappings
 
@@ -118,6 +126,11 @@ public class EventRegistrationRestController {
 	@GetMapping(value = { "/persons/{name}", "/persons/{name}/" })
 	public PersonDto getPersonByName(@PathVariable("name") String name) throws IllegalArgumentException {
 		return convertToDto(service.getPerson(name));
+	}
+	
+	@GetMapping(value = { "/promoters/{name}", "/promoters/{name}/" })
+	public PersonDto getPromotersByName(@PathVariable("name") String name) throws IllegalArgumentException {
+		return convertToDto(service.getPromoter(name));
 	}
 
 	@GetMapping(value = { "/registrations", "/registrations/" })

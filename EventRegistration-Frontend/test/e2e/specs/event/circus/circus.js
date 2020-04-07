@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable spaced-comment */
 const config = require('./config.js');
 
 module.exports = {
@@ -22,7 +24,8 @@ module.exports = {
       .setValue(config.id.nameInput, event.name)
       .pause(config.time.pause)
       .assert.visible(config.id.dateInput)
-      .setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      //.setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      .setValue(config.id.dateInput, `${event.date.year}-${event.date.month}-${event.date.day}`)
       .pause(config.time.pause)
       .assert.visible(config.id.starttimeInput)
       .setValue(config.id.starttimeInput, event.startTime)
@@ -54,7 +57,8 @@ module.exports = {
       .setValue(config.id.nameInput, event.name)
       .pause(config.time.pause)
       .assert.visible(config.id.dateInput)
-      .setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      //.setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      .setValue(config.id.dateInput, `${event.date.year}-${event.date.month}-${event.date.day}`)
       .pause(config.time.pause)
       .assert.visible(config.id.starttimeInput)
       .setValue(config.id.starttimeInput, event.startTime)
@@ -88,7 +92,8 @@ module.exports = {
       .setValue(config.id.nameInput, event.name)
       .pause(config.time.pause)
       .assert.visible(config.id.dateInput)
-      .setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      //.setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      .setValue(config.id.dateInput, `${event.date.year}-${event.date.month}-${event.date.day}`)
       .pause(config.time.pause)
       .assert.visible(config.id.starttimeInput)
       .setValue(config.id.starttimeInput, event.startTime)
@@ -119,7 +124,8 @@ module.exports = {
       .setValue(config.id.nameInput, event.name)
       .pause(config.time.pause)
       .assert.visible(config.id.dateInput)
-      .setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      //.setValue(config.id.dateInput, `${event.date.day}-${event.date.month}-${event.date.year}`)
+      .setValue(config.id.dateInput, `${event.date.year}-${event.date.month}-${event.date.day}`)
       .pause(config.time.pause)
       .assert.visible(config.id.starttimeInput)
       .sendKeys(config.id.starttimeInput, client.Keys.BACK_SPACE)

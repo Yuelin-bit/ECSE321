@@ -95,6 +95,22 @@
     <br/>
     <span v-if="errorRegistration" style="color:red">Error: {{errorRegistration}}</span>
     <hr>
+
+    <h2>Assign Professionals</h2>
+    <label>Promoter:
+      <select id='assign-selected-promoter' v-model="selectedPromoter">
+        <option disabled value="">Please select one</option>
+        <option v-for="(promoter, i) in promoters" v-bind:key="`promoter-${i}`">{{promoter.name}}</option>
+      </select>
+    </label>
+    <label>Event:
+      <select id='assign-selected-event-promoter' v-model="selectedEventP">
+        <option disabled value="">Please select one</option>
+        <option v-for="(event, i) in events" v-bind:key="`event-${i}`">{{event.name}}</option>
+      </select>
+    </label>
+    <button id='assign-button-promoter' v-bind:disabled="!selectedPromoter || !selectedEventP" @click="assignEvent(selectedPromoter, selectedEventP)">Assign</button>
+    <span id="assign-error" v-if="errorAssign" style="color:red">Error: {{errorAssign}}</span>
   </div>
 </template>
 
