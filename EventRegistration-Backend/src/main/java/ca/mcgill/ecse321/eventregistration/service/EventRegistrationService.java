@@ -219,7 +219,7 @@ public class EventRegistrationService {
 	@Transactional
 	public void promotesEvent(Promoter promoter, Event event) {
 		// TODO Auto-generated method stub
-		if(promoter == null) {
+		if(promoter == null || !promoter.getClass().equals(Promoter.class)) {
 			throw new IllegalArgumentException("Promoter needs to be selected for promotes!");
 		}
 		if(! eventRepository.existsById(event.getName())){
@@ -242,16 +242,16 @@ public class EventRegistrationService {
 		if (name == null || name.trim().length() == 0) {
 			error = error + "Event name cannot be empty! ";
 		} else if (eventRepository.existsById(name)) {
-			throw new IllegalArgumentException("Event has already been created!");
+			error = error + "Event has already been created!";
 		}
 		if (circusDate == null) {
-			error = error + "Event date cannot be empty! ";
+			error = error + "Event date cannot be empty!";
 		}
 		if (valueOf == null) {
-			error = error + "Event start time cannot be empty! ";
+			error = error + "Event start time cannot be empty!";
 		}
 		if (valueOf2 == null) {
-			error = error + "Event end time cannot be empty! ";
+			error = error + "Event end time cannot be empty!";
 		}
 		if (valueOf2 != null && valueOf != null && valueOf2.before(valueOf)) {
 			error = error + "Event end time cannot be before event start time!";
