@@ -3,7 +3,7 @@ package ca.mcgill.ecse321.eventregistration.dto;
 import java.sql.Date;
 import java.sql.Time;
 
-public class CircusDto {
+public class CircusDto extends EventDto {
 	private String name;
 	private Date date;
 	private Time startTime;

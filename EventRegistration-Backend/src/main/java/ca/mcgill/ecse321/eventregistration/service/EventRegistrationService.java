@@ -114,7 +114,8 @@ public class EventRegistrationService {
 	// This returns all objects of instance "Event" (Subclasses are filtered out)
 	@Transactional
 	public List<Event> getAllEvents() {
-		return toList(eventRepository.findAll()).stream().filter(e -> e.getClass().equals(Event.class)).collect(Collectors.toList());
+		//return toList(eventRepository.findAll()).stream().filter(e -> e.getClass().equals(Event.class)).collect(Collectors.toList());
+		return toList(eventRepository.findAll()).stream().collect(Collectors.toList());
 	}
 
 	@Transactional

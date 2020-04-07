@@ -49,11 +49,11 @@
         <th>Company</th>
       </tr>
       <tr v-for="(event, i) in events" v-bind:id="event.name" v-bind:key="`event-${i}`">
-        <td v-bind:id="`${event.name.replace(/\s/g, '_')}-name`">{{event.name}}</td>
-        <td v-bind:id="`${event.name.replace(/\s/g, '_')}-date`">{{event.date}}</td>
-        <td v-bind:id="`${event.name.replace(/\s/g, '_')}-starttime`">{{event.startTime}}</td>
-        <td v-bind:id="`${event.name.replace(/\s/g, '_')}-endtime`">{{event.endTime}}</td>
-        <td v-bind:id="`${event.name.replace(/\s/g, '_')}-company`">{{event.company}}</td>
+        <td v-bind:id="`${event.name.replace(/\s/g, '-')}-name`">{{event.name}}</td>
+        <td v-bind:id="`${event.name.replace(/\s/g, '-')}-date`">{{event.date}}</td>
+        <td v-bind:id="`${event.name.replace(/\s/g, '-')}-starttime`">{{event.startTime}}</td>
+        <td v-bind:id="`${event.name.replace(/\s/g, '-')}-endtime`">{{event.endTime}}</td>
+        <td v-bind:id="`${event.name.replace(/\s/g, '-')}-company`">{{event.company}}</td>
       </tr>
       <tr>
         <td>

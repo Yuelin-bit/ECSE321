@@ -68,10 +68,10 @@ export default {
       if(personType == 'promoter') {
         AXIOS.post('/promoters/'.concat(personName), {}, {})
         .then(response => {
-        this.persons.push(response.data);
-        this.errorPerson = '';
-        this.newPerson = '';
-      })
+          this.persons.push(response.data);
+          this.errorPerson = '';
+          this.newPerson = '';
+        })
       .catch(e => {
         e = e.response.data.message ? e.response.data.message : e;
         this.errorPerson = e;
@@ -117,8 +117,11 @@ export default {
       } else {
         AXIOS.post('/events/'.concat(newEvent.name), {}, {params: newEvent})
       .then(response => {
-        var event  = response.data;
+        var event = response.data;
         event.company = '--'
+        // if(event.date.charAt(2)=='-'){
+        //event.date = '1000-01-01'
+        // }
         this.events.push(event);
         this.errorEvent = '';
         this.newEvent.name = this.newEvent.make = this.newEvent.movie = this.newEvent.company = this.newEvent.artist = this.newEvent.title = '';

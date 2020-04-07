@@ -99,7 +99,10 @@ public class EventRegistrationRestController {
 	public List<EventDto> getAllEvents() {
 		List<EventDto> eventDtos = new ArrayList<>();
 		for (Event event : service.getAllEvents()) {
-			eventDtos.add(convertToDto(event));
+			if(event.getClass().equals(Circus.class)) {
+				eventDtos.add(convertToDto((Circus)event));
+			}else
+				eventDtos.add(convertToDto(event));
 		}
 		return eventDtos;
 	}
