@@ -221,6 +221,8 @@ public class EventRegistrationService {
 		String error = "";
 		if(promoter == null || !promoter.getClass().equals(Promoter.class)) {
 			error = error + "Promoter needs to be selected for promotes!";
+		}else if(!promoterRepository.existsById(promoter.getName())){
+			error = error + "Promoter does not exist!";
 		}
 		if(event == null) {
 			error = error + "Event cannot be empty!";
