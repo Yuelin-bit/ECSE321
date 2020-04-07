@@ -69,9 +69,16 @@ export default {
     })
     .catch(e => { this.errorPerson = e });
 
-    AXIOS.get('/events').then(response => { this.events = response.data }).catch(e => { this.errorEvent = e });
+    AXIOS.get('/events').then(response => {
+      var tmp = response.data;
+      for (var i = 0; i < tmp.length; i++)
+    { 
+        if(tmp[i].company == '' || tmp[i].company == null)
+        { tmp[i].company = '--'; }
+      }
+      this.events = tmp }).catch(e => { this.errorEvent = e });
+    
     AXIOS.get('/promoters').then(response => { this.promoters = response.data }).catch(e => { this.errorPromoter = e });
-
   },
 
   methods: {

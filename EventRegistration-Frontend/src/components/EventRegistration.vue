@@ -1,7 +1,7 @@
 <template>
   <div id="eventregistration">
     <h2>Persons</h2>
-    <table id="persons_table">
+    <table id="persons-table">
       <tr>
         <th>Name</th>
         <th>Events</th>
@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <td>
-          <input id="create_person_person_name" type="text" v-model="newPerson" placeholder="Person Name">
+          <input id="create-person-person-name" type="text" v-model="newPerson" placeholder="Person Name">
         </td>
         <td>
           <select id='create-person-person-type' v-model="personType" placeholder="Person">
@@ -30,7 +30,7 @@
           </select>
         </td>
         <td>
-          <button id="create_person_button" v-bind:disabled="!newPerson" @click="createPerson(personType, newPerson)">Create Person</button>
+          <button id="create-person-button" v-bind:disabled="!newPerson" @click="createPerson(personType, newPerson)">Create Person</button>
         </td>
         <td></td>
         <td></td>
@@ -133,7 +133,7 @@
         <input type="text" id="bitcoin-id-input" v-model= "deviceId">
       </label>
       <label >Amount:
-        <input type="text" id="apple-pay-amount-input" v-model= "amount">
+        <input type="text" id="bitcoin-amount-input" v-model= "amount">
       </label>
       <br>
       <button id='bitcoin-button' v-bind:disabled="!selectedPersonB || !selectedEventB || !deviceId|| !amount" @click="pay(selectedPersonB, selectedEventB, deviceId, amount)">Make payment</button>
