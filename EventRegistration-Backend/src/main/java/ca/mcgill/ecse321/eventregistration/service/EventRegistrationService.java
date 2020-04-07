@@ -218,12 +218,18 @@ public class EventRegistrationService {
 	
 	@Transactional
 	public void promotesEvent(Promoter promoter, Event event) {
-		// TODO Auto-generated method stub
+		String error = "";
 		if(promoter == null || !promoter.getClass().equals(Promoter.class)) {
-			throw new IllegalArgumentException("Promoter needs to be selected for promotes!");
+			error = error + "Promoter needs to be selected for promotes!";
 		}
-		if(! eventRepository.existsById(event.getName())){
-			throw new IllegalArgumentException("Event does not exist!");
+		if(event == null) {
+			error = error + "Event cannot be empty!";
+		}else if(! eventRepository.existsById(event.getName())){
+			error = error + "Event does not exist!";
+		}
+		error = error.trim();
+		if (error.length() > 0) {
+			throw new IllegalArgumentException(error);
 		}
 		event.setPromoter(promoter);
 		Set<Event> temp = promoter.getPromotes();
