@@ -100,6 +100,19 @@ public class EventRegistrationRestController {
 		Event e = service.getEvent(eDto.getName());
 		service.promotesEvent(p, e);
 	}
+	
+	@PostMapping(value = { "/pay/", "/pay" })
+	public void pay(@RequestParam PersonDto person,@RequestParam EventDto event,
+		@RequestParam String deviceId,@RequestParam int amount)throws IllegalArgumentException {
+			Person p = service.getPerson(person.getName());
+			Event e = service.getEvent(event.getName());
+			Registration r = service.getRegistrationByPersonAndEvent(p, e);
+			if(r == null) {
+				throw new IllegalArgumentException("Registration does not exsit");
+			}
+			Bitcoin b = service.createBitcoinPay(deviceId, amount);
+			service.pay(r, b);
+	}
 
 	// GET Mappings
 

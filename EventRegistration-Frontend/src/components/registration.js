@@ -43,15 +43,20 @@ export default {
         endTime: '11:00',
         company: ''
       },
+      deviceId: '',
+      amount: '',
       selectedPerson: '',
       selectedPromoter: '',
       selectedEvent: '',
       selectedEventP: '',
+      selectedPersonB: '',
+      selectedEventB: '',
       errorPerson: '',
       errorPromoter: '',
       errorEvent: '',
       errorRegistration: '',
       errorAssign: '',
+      errorPay: '',
       response: []
     }
   },
@@ -205,6 +210,36 @@ export default {
       .catch(e => {
         e = e.response.data.message ? e.response.data.message : e;
         this.errorAssign = e;
+        console.log(e);
+      });
+    },
+
+    pay: function (personName, eventName, deviceId, amount) {
+      let person = this.persons.find(x => x.name === personName);
+      let event = this.events.find(x => x.name === eventName);
+      let params = {
+        person: person.name,
+        event: event.name,
+        deviceId: deviceId,
+        amount: amount
+      };
+
+      AXIOS.post('/pay', {}, {params: params})
+      .then(response => {
+        console.log('success pay');
+        let eventAttended = person.eventsAttended.find(x => x.name === eventName);
+        eventAttended.amount = amount;
+        eventAttended.deviceId = deviceId;
+        this.selectedPersonB = '';
+        this.selectedEventB = '';
+        this.deviceId = '';
+        this.amount = '';
+        this.errorPay = '';
+      })
+      .catch(e => {
+        console.log('error pay');
+        e = e.response.data.message ? e.response.data.message : e;
+        this.errorPay = e;
         console.log(e);
       });
     }

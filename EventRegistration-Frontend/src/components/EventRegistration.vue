@@ -111,6 +111,34 @@
     </label>
     <button id='assign-button-promoter' v-bind:disabled="!selectedPromoter || !selectedEventP" @click="assignEvent(selectedPromoter, selectedEventP)">Assign</button>
     <span id="assign-error" v-if="errorAssign" style="color:red">Error: {{errorAssign}}</span>
+
+    <hr>
+    <h2>Pay for Registration with Bitcoin</h2>
+      <label>Person:
+          <select id='bitcoin-person-select' v-model="selectedPersonB">
+            <option disabled value="">Please select one</option>
+            <option v-for="(person, i) in persons" v-bind:key="`person-${i}`">{{person.name}}</option>
+          </select>
+      </label>
+
+      <label>Event:
+        <select id='bitcoin-event-select' v-model="selectedEventB">
+          <option disabled value="">Please select one</option>
+          <option v-for="(event, i) in events" v-bind:key="`event-${i}`">{{event.name}}</option>
+        </select>
+      </label>
+      
+      <br>
+      <label >Device id:
+        <input type="text" id="bitcoin-id-input" v-model= "deviceId">
+      </label>
+      <label >Amount:
+        <input type="text" id="apple-pay-amount-input" v-model= "amount">
+      </label>
+      <br>
+      <button id='bitcoin-button' v-bind:disabled="!selectedPersonB || !selectedEventB || !deviceId|| !amount" @click="pay(selectedPersonB, selectedEventB, deviceId, amount)">Make payment</button>
+      <br>
+      <span id="bitcoin-error" v-if="errorPay" style="color:red">Error: {{errorPay}}</span>
   </div>
 </template>
 
