@@ -108,6 +108,9 @@ export default {
         console.log(e);
       });
     },
+    dateFormat: function (date) {
+      return '1234-01-01'
+    },
 
     createEvent: function (newEvent) {
       let url = '';
@@ -118,8 +121,10 @@ export default {
         AXIOS.post('/events/'.concat(newEvent.name), {}, {params: newEvent})
       .then(response => {
         var event = response.data;
-        event.company = '--'
-        event.date = '00' + event.date
+        event.company = '--';
+        // var date1 = new Date();
+        // date1.setFullYear('1234', '1', '1');
+        // event.date = date1;
         // if(event.date.charAt(2)=='-'){
         // event.date = '1000-01-01'
         // }
