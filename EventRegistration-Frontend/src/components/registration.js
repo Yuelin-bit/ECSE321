@@ -119,8 +119,9 @@ export default {
       .then(response => {
         var event = response.data;
         event.company = '--'
+        event.date = '00' + event.date
         // if(event.date.charAt(2)=='-'){
-        //event.date = '1000-01-01'
+        // event.date = '1000-01-01'
         // }
         this.events.push(event);
         this.errorEvent = '';

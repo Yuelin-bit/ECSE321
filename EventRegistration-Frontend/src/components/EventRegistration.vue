@@ -60,7 +60,7 @@
           <input id="event-name-input" type="text" v-model="newEvent.name" placeholder="Event Name">
         </td>
         <td>
-          <input id="event-date-input" type="date" max="2979-12-31" v-model="newEvent.date" placeholder="YYYY-MM-DD">
+          <input id="event-date-input" type="date" max="9999-12-31" min="1000-01-01" v-model="newEvent.date" placeholder="YYYY-MM-DD">
         </td>
         <td>
           <input id="event-starttime-input" type="time" v-model="newEvent.startTime" placeholder="HH:mm">
