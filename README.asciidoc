@@ -12,7 +12,7 @@ Once you have completed the assignment, please replace the two placeholders with
 
 Backend URL: _https://git.heroku.com/eventregistration-backend-122.git_
 
-Frontend URL: _To be added once ready_
+Frontend URL: _http://127.0.0.1:8087/#/app_
 
 == Backend
 
