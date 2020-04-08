@@ -16,6 +16,7 @@
               <td>  
                 <span class='registration-event-name'>{{event.name}}</span>
               </td>   
+              <td></td>
               <td>{{event.deviceId}}</td>
               <td> {{event.amount}}</td>
             </div>

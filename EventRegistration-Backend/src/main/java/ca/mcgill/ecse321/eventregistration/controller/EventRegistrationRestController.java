@@ -166,6 +166,15 @@ public class EventRegistrationRestController {
 		return createRegistrationDtosForPerson(p);
 	}
 	
+	@GetMapping(value = { "/registrations/bitcoin/{name}", "/registrations/person/{name}/" })
+	public List<RegistrationDto> getRegistrationsForBitcoin(@PathVariable("name") PersonDto pDto)
+			throws IllegalArgumentException {
+		// Both the person and the event are identified by their names
+		Person p = service.getPerson(pDto.getName());
+
+		return createRegistrationDtosForBitcoin(p);
+	}
+	
 	
 	@GetMapping(value = { "/bitcoins", "/bitcoins/" })
 	public BitcoinDto getBitCoin(@RequestParam(name = "person") PersonDto pDto,
@@ -175,7 +184,7 @@ public class EventRegistrationRestController {
 
 		Registration r = service.getRegistrationByPersonAndEvent(p, e);
 		Bitcoin b = service.getBitcoin(r);
-		return convertBitcoinDto(b);
+		return convertToDto(b);
 	}
 
 
@@ -246,15 +255,16 @@ public class EventRegistrationRestController {
 		return new RegistrationDto(pDto, eDto);
 	}
 	
-	private BitcoinDto convertBitcoinDto(Bitcoin b) {
+	private BitcoinDto convertToDto(Bitcoin b) {
 		// TODO Auto-generated method stub
 		return new BitcoinDto(b.getUserID(), b.getAmount());
 	}
+	
 
 	private RegistrationDto convertToDto(Registration r) {
 		EventDto eDto = convertToDto(r.getEvent());
 		PersonDto pDto = convertToDto(r.getPerson());
-		RegistrationDto rDto = new RegistrationDto(pDto, eDto);
+		RegistrationDto rDto = new RegistrationDto(pDto, eDto, r.getBitcoin().getAmount(), r.getBitcoin().getUserID());
 		return rDto;
 	}
 
@@ -265,6 +275,13 @@ public class EventRegistrationRestController {
 		rDto.setPerson(null);
 		return rDto;
 	}
+	
+	private RegistrationDto convertToDtoOnlyBitcoin(Registration r) {
+		BitcoinDto b = convertToDto(r.getBitcoin());
+		
+		return new RegistrationDto(b);
+	}
+
 
 	private Person convertToDomainObject(PersonDto pDto) {
 		List<Person> allPersons = service.getAllPersons();
@@ -313,4 +330,15 @@ public class EventRegistrationRestController {
 		}
 		return registrations;
 	}
+	
+	private List<RegistrationDto> createRegistrationDtosForBitcoin(Person p) {
+		List<Registration> registrationsForPerson = service.getRegistrationsForPerson(p);
+		List<RegistrationDto> registrations = new ArrayList<RegistrationDto>();
+		for (Registration r : registrationsForPerson) {
+			registrations.add(convertToDtoOnlyBitcoin(r));
+		}
+		return registrations;
+	}
+
+
 }

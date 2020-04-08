@@ -44,7 +44,7 @@ export default {
         company: ''
       },
       deviceId: '',
-      amount: '',
+      amount: '2',
       selectedPerson: '',
       selectedPromoter: '',
       selectedEvent: '',
@@ -85,6 +85,8 @@ export default {
       })
     })
        .catch(e => { this.errorPromoter = e });
+
+    // this.getBitcoin('Yuelin', 'Debate');
   },
 
   methods: {
@@ -188,15 +190,38 @@ export default {
       });
     },
 
+    getBitcoin: function (personName, eventName) {
+      // let event = this.events.find(x => x.name === eventName);
+      // let person = this.persons.find(x => x.name === personName);
+      let params = {
+        person: personName,
+        event: eventName
+      };
+      AXIOS.get('/bitcoins?person=' + personName + '&event=' + eventName, {}, {params: params})
+      .then(response => {
+        // alert(response.data.amount);
+        return response.data.amount;
+      });
+    },
+
     getRegistrations: function (personName) {
-      AXIOS.get('/events/person/'.concat(personName))
+      AXIOS.get('/registrations/person/'.concat(personName))
       .then(response => {
         if (!response.data || response.data.length <= 0) return;
 
         let indexPart = this.persons.map(x => x.name).indexOf(personName);
         this.persons[indexPart].eventsAttended = [];
-        response.data.forEach(event => {
-         // event.amount = event.registration.bitcoin.amount;;
+        response.data.forEach(registration => {
+          // this.getBitcoin('1', '2');
+          // alert(event.name + personName);
+          // var aa = this.getBitcoin(personName, event.name);
+          //alert(registration);
+          event.name = registration.event.name;
+          event.amount = registration.amount;
+          event.deviceId = registration.userID;
+          
+          // event.amount = '4';
+          
           this.persons[indexPart].eventsAttended.push(event);
         });
       })
@@ -205,7 +230,6 @@ export default {
         console.log(e);
       });
     },
-
 
     assignEvent: function (personName, eventName) {
       let promoter = this.promoters.find(x => x.name === personName);
