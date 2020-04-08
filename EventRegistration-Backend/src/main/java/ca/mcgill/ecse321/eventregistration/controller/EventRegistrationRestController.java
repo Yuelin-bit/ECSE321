@@ -264,7 +264,11 @@ public class EventRegistrationRestController {
 	private RegistrationDto convertToDto(Registration r) {
 		EventDto eDto = convertToDto(r.getEvent());
 		PersonDto pDto = convertToDto(r.getPerson());
-		RegistrationDto rDto = new RegistrationDto(pDto, eDto, r.getBitcoin().getAmount(), r.getBitcoin().getUserID());
+		RegistrationDto rDto;
+		if(r.getBitcoin()!=null)
+			rDto = new RegistrationDto(pDto, eDto, r.getBitcoin().getAmount(), r.getBitcoin().getUserID());
+		else
+			rDto = new RegistrationDto(pDto, eDto);
 		return rDto;
 	}
 
