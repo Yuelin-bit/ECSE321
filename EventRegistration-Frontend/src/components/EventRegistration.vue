@@ -12,9 +12,13 @@
         <td>{{person.name}}</td>
         <td>
           <ul>
-            <li v-for="(event, i) in person.eventsAttended" v-bind:key="`event-${i}`" style="list-style-type: disc;">
-              <span class='registration-event-name'>{{event.name}}</span>
-            </li>
+            <div v-for="(event, i) in person.eventsAttended" v-bind:key="`event-${i}`" style="list-style-type: disc;">
+              <td>  
+                <span class='registration-event-name'>{{event.name}}</span>
+              </td>   
+              <td>{{event.deviceId}}</td>
+              <td> {{event.amount}}</td>
+            </div>
           </ul>
         </td>
       </tr>

@@ -72,13 +72,19 @@ export default {
     AXIOS.get('/events').then(response => {
       var tmp = response.data;
       for (var i = 0; i < tmp.length; i++)
-    { 
+      { 
         if(tmp[i].company == '' || tmp[i].company == null)
         { tmp[i].company = '--'; }
       }
       this.events = tmp }).catch(e => { this.errorEvent = e });
     
-    AXIOS.get('/promoters').then(response => { this.promoters = response.data }).catch(e => { this.errorPromoter = e });
+    AXIOS.get('/promoters').then(response => {
+      this.promoters = response.data;
+      this.promoters.forEach(promoter => {
+        this.getRegistrations(promoter.name)
+      })
+    })
+       .catch(e => { this.errorPromoter = e });
   },
 
   methods: {
@@ -190,6 +196,7 @@ export default {
         let indexPart = this.persons.map(x => x.name).indexOf(personName);
         this.persons[indexPart].eventsAttended = [];
         response.data.forEach(event => {
+         // event.amount = event.registration.bitcoin.amount;;
           this.persons[indexPart].eventsAttended.push(event);
         });
       })
@@ -198,6 +205,7 @@ export default {
         console.log(e);
       });
     },
+
 
     assignEvent: function (personName, eventName) {
       let promoter = this.promoters.find(x => x.name === personName);
