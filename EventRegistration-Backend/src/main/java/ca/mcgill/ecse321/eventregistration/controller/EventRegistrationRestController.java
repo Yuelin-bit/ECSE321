@@ -165,6 +165,19 @@ public class EventRegistrationRestController {
 
 		return createRegistrationDtosForPerson(p);
 	}
+	
+	
+	@GetMapping(value = { "/bitcoins", "/bitcoins/" })
+	public BitcoinDto getBitCoin(@RequestParam(name = "person") PersonDto pDto,
+			@RequestParam(name = "event") EventDto eDto) throws IllegalArgumentException {
+		Person p = service.getPerson(pDto.getName());
+		Event e = service.getEvent(eDto.getName());
+
+		Registration r = service.getRegistrationByPersonAndEvent(p, e);
+		Bitcoin b = service.getBitcoin(r);
+		return convertBitcoinDto(b);
+	}
+
 
 	@GetMapping(value = { "/persons", "/persons/" })
 	public List<PersonDto> getAllPersons() {
@@ -231,6 +244,11 @@ public class EventRegistrationRestController {
 		EventDto eDto = convertToDto(e);
 		PersonDto pDto = convertToDto(p);
 		return new RegistrationDto(pDto, eDto);
+	}
+	
+	private BitcoinDto convertBitcoinDto(Bitcoin b) {
+		// TODO Auto-generated method stub
+		return new BitcoinDto(b.getUserID(), b.getAmount());
 	}
 
 	private RegistrationDto convertToDto(Registration r) {

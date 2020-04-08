@@ -326,6 +326,17 @@ public class EventRegistrationService {
 		bitcoinRepository.save(bitcoin);
 		return bitcoin;
 	}
+	
+	public Bitcoin getBitcoin(Registration registration) {
+		String error = "";
+		if(registration == null) {
+			error = error + "Registration is null!";
+		}
+		if (error.length() > 0) {
+			throw new IllegalArgumentException(error);
+		}
+		return registration.getBitcoin();
+	}
 
 	public void pay(Registration r, Bitcoin ap) {
 		String error = "";
