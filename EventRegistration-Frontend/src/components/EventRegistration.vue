@@ -11,18 +11,26 @@
       <tr v-for="(person, i) in persons" v-bind:key="`person-${i}`">
         <td>{{person.name}}</td>
         <td>
-          <ul>
-            <div v-for="(event, i) in person.eventsAttended" v-bind:key="`event-${i}`" style="list-style-type: disc;">
+          <li v-for="(event, i) in person.eventsAttended" v-bind:key="`event-${i}`" style="list-style-type: disc;">
               <td>  
                 <span class='registration-event-name'>{{event.name}}</span>
               </td>   
-              <td></td>
-              <td>{{event.deviceId}}</td>
-              <td> {{event.amount}}</td>
-            </div>
-          </ul>
+          </li>
         </td>
+        <td>
+           <tr v-for="(event, i) in person.eventsAttended" v-bind:key="`event-${i}`" style="list-style-type: disc;">
+              {{event.deviceId}}
+           </tr>   
+        </td>
+        <td>
+           <tr v-for="(event, i) in person.eventsAttended" v-bind:key="`event-${i}`" style="list-style-type: disc;">
+              {{event.amount}}
+           </tr>   
+        </td>
+
+
       </tr>
+      
       <tr>
         <td>
           <input id="create-person-person-name" type="text" v-model="newPerson" placeholder="Person Name">
