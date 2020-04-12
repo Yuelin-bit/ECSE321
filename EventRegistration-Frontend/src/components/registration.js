@@ -5,7 +5,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
   // eslint-disable-next-line space-before-function-paren
-  //test origin connection
+  //test origin connection11
 import _ from 'lodash';
 import axios from 'axios';
 let config = require('../../config');
