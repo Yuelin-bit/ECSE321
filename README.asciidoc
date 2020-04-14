@@ -10,9 +10,9 @@ This README gives you a general overview of what you will need to do to complete
 
 Once you have completed the assignment, please replace the two placeholders with the Backend and Frontend server URLs so that the graders can find your deployed apps easily.
 
-Backend URL: _https://git.heroku.com/eventregistration-backend-122.git_
+Backend URL: _eventregistration-backend-122.herokuapp.com_
 
-Frontend URL: _https://git.heroku.com/eventregistration-frontend-123.git_
+Frontend URL: _eventregistration-frontend-123.herokuapp.com_
 
 == Backend
 
