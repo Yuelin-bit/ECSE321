@@ -1,13 +1,13 @@
 ***********************************************************
-Timestamp: 20 04 18 Sat 06:54:50 (UTC)
+Timestamp: 20 04 18 Sat 19:32:01 (UTC)
 
 Backend results:
 35 tests completed, 0 failed
 
 Frontend results:
-From the total of 19 tests, 2 were successful
+From the total of 19 tests, 19 were successful
 
 Total score (percentage):
-53.42%
+100.00%
 
 
